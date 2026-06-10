@@ -1,0 +1,1 @@
+web: gunicorn eco_shop.wsgi
