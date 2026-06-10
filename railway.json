@@ -1,0 +1,6 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "deploy": {
+    "startCommand": "python manage.py collectstatic --noinput && gunicorn eco_shop.wsgi"
+  }
+}
