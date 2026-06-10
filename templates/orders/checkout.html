@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Оформление заказа - GreenShop{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-bag-check"></i> Оформление заказа</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Recipient Info -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0"><i class="bi bi-person"></i> Получатель</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.recipient_name.id_for_label }}" class="form-label">
+                                    Имя и фамилия *
+                                </label>
+                                {{ form.recipient_name|add_class:"form-control"|attr:"placeholder:Иван Иванов" }}
+                                {% if form.recipient_name.errors %}
+                                    <div class="text-danger small">{{ form.recipient_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.recipient_phone.id_for_label }}" class="form-label">
+                                    Телефон *
+                                </label>
+                                {{ form.recipient_phone|add_class:"form-control"|attr:"placeholder:+7 (999) 999-99-99" }}
+                                {% if form.recipient_phone.errors %}
+                                    <div class="text-danger small">{{ form.recipient_phone.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.recipient_email.id_for_label }}" class="form-label">
+                                Email (для уведомлений)
+                            </label>
+                            {{ form.recipient_email|add_class:"form-control"|attr:"placeholder:email@example.com" }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Address -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0"><i class="bi bi-geo-alt"></i> Адрес доставки</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="{{ form.delivery_address.id_for_label }}" class="form-label">
+                                Полный адрес *
+                            </label>
+                            {{ form.delivery_address|add_class:"form-control"|attr:"placeholder:Город, улица, дом, квартира"|attr:"rows:3" }}
+                            {% if form.delivery_address.errors %}
+                                <div class="text-danger small">{{ form.delivery_address.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.delivery_notes.id_for_label }}" class="form-label">
+                                Комментарий к заказу
+                            </label>
+                            {{ form.delivery_notes|add_class:"form-control"|attr:"placeholder:Дополнительная информация для курьера"|attr:"rows:2" }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0"><i class="bi bi-credit-card"></i> Способ оплаты</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="payment_method"
+                                   id="payment_yookassa" value="yookassa" checked>
+                            <label class="form-check-label" for="payment_yookassa">
+                                <strong>Онлайн-оплата (ЮКасса)</strong><br>
+                                <small class="text-muted">Оплата банковской картой через безопасный платёжный шлюз</small>
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="payment_method"
+                                   id="payment_cash" value="cash">
+                            <label class="form-check-label" for="payment_cash">
+                                <strong>Наличными при получении</strong><br>
+                                <small class="text-muted">Оплата курьеру наличными</small>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment_method"
+                                   id="payment_card_delivery" value="card_on_delivery">
+                            <label class="form-check-label" for="payment_card_delivery">
+                                <strong>Картой при получении</strong><br>
+                                <small class="text-muted">Оплата курьеру банковской картой</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm sticky-top" style="top: 100px;">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-list-check"></i> Ваш заказ</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="mb-3">Товары:</h6>
+                        {% for item in cart.items.all %}
+                        <div class="d-flex justify-content-between mb-2">
+                            <small>{{ item.product.name|truncatewords:3 }} × {{ item.quantity }}</small>
+                            <small class="fw-bold">{{ item.total_price }} ₽</small>
+                        </div>
+                        {% endfor %}
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Товары:</span>
+                            <strong>{{ cart.total_price }} ₽</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Доставка:</span>
+                            <strong>
+                                {% if cart.total_price >= 3000 %}
+                                    <span class="text-success">Бесплатно</span>
+                                {% else %}
+                                    300 ₽
+                                {% endif %}
+                            </strong>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5>Итого:</h5>
+                            <h5 class="text-success">
+                                {% if cart.total_price >= 3000 %}
+                                    {{ cart.total_price }} ₽
+                                {% else %}
+                                    {% widthratio cart.total_price 1 1 as total_with_delivery %}
+                                    {{ cart.total_price|add:300 }} ₽
+                                {% endif %}
+                            </h5>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-check-circle"></i> Оформить заказ
+                            </button>
+                            <a href="{% url 'orders:cart' %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Вернуться в корзину
+                            </a>
+                        </div>
+
+                        <div class="alert alert-light mt-3 mb-0">
+                            <small>
+                                <i class="bi bi-shield-check text-success"></i>
+                                Ваши данные защищены и не передаются третьим лицам
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

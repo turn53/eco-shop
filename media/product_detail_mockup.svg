@@ -1,0 +1,513 @@
+<!-- Макет страницы товара - Product Detail GreenShop -->
+<svg width="1440" height="2200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Градиенты -->
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#28a745;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#20833a;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4edda;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c3e6cb;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Тени -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Фон -->
+  <rect width="1440" height="2200" fill="#f8f9fa"/>
+
+  <!-- HEADER (упрощенный) -->
+  <g id="header">
+    <rect width="1440" height="80" fill="url(#greenGradient)" filter="url(#shadow)"/>
+
+    <g id="logo" transform="translate(60, 25)">
+      <path d="M 15 5 Q 25 5 30 15 Q 30 25 20 30 Q 15 25 15 20 L 12 15 Z" fill="#fff" opacity="0.9"/>
+      <text x="40" y="22" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff">
+        GreenShop
+      </text>
+    </g>
+
+    <g id="navigation" transform="translate(400, 30)">
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" font-weight="500">Каталог</text>
+      <text x="100" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">О нас</text>
+      <text x="200" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">Контакты</text>
+    </g>
+
+    <!-- Корзина -->
+    <g transform="translate(1320, 25)">
+      <rect x="8" y="10" width="24" height="18" rx="2" fill="none" stroke="#fff" stroke-width="2" opacity="0.8"/>
+      <path d="M 12 10 L 12 8 Q 12 5 20 5 Q 28 5 28 8 L 28 10" stroke="#fff" stroke-width="2" fill="none" opacity="0.8"/>
+      <circle cx="30" cy="8" r="8" fill="#dc3545"/>
+      <text x="30" y="12" font-family="Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+    </g>
+  </g>
+
+  <!-- ХЛЕБНЫЕ КРОШКИ -->
+  <g id="breadcrumbs" transform="translate(120, 110)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+      Главная
+    </text>
+    <text x="80" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+      /
+    </text>
+    <text x="100" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+      Посуда
+    </text>
+    <text x="170" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+      /
+    </text>
+    <text x="190" y="0" font-family="Arial, sans-serif" font-size="14" fill="#28a745" font-weight="600">
+      Бамбуковая тарелка
+    </text>
+  </g>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <g id="product-main" transform="translate(0, 160)">
+    <!-- ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ -->
+    <g id="gallery" transform="translate(120, 0)">
+      <!-- Основное изображение -->
+      <rect width="600" height="600" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+      <rect x="20" y="20" width="560" height="560" rx="4" fill="#e9ecef"/>
+
+      <!-- Иконка товара - большая тарелка -->
+      <g transform="translate(300, 260)">
+        <circle cx="0" cy="0" r="120" fill="#d4edda"/>
+        <ellipse cx="0" cy="0" rx="100" ry="25" fill="#28a745" opacity="0.3"/>
+        <circle cx="0" cy="0" r="85" fill="none" stroke="#28a745" stroke-width="3" opacity="0.5"/>
+        <circle cx="0" cy="0" r="70" fill="none" stroke="#28a745" stroke-width="2" opacity="0.4"/>
+
+        <!-- Декоративный узор -->
+        <g opacity="0.4">
+          <path d="M -30 -10 Q -20 -20 -10 -10 Q 0 -5 10 -10 Q 20 -20 30 -10" stroke="#28a745" stroke-width="2" fill="none"/>
+          <path d="M -30 10 Q -20 20 -10 10 Q 0 5 10 10 Q 20 20 30 10" stroke="#28a745" stroke-width="2" fill="none"/>
+        </g>
+
+        <!-- Листик на тарелке -->
+        <path d="M -10 -5 Q 0 -15 10 -5 Q 10 5 0 10 Q -5 5 -10 0 Z" fill="#28a745" opacity="0.6"/>
+      </g>
+
+      <!-- Бейдж NEW -->
+      <rect x="40" y="40" width="70" height="32" rx="16" fill="#28a745"/>
+      <text x="75" y="62" font-family="Arial, sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="600">
+        NEW
+      </text>
+
+      <!-- Кнопка избранное -->
+      <g transform="translate(540, 40)">
+        <circle cx="0" cy="0" r="20" fill="#fff" opacity="0.9"/>
+        <path d="M 0 -8 L 3 -2 L 10 -2 L 4 2 L 6 9 L 0 5 L -6 9 L -4 2 L -10 -2 L -3 -2 Z" fill="#dc3545"/>
+      </g>
+
+      <!-- Миниатюры -->
+      <g transform="translate(0, 620)">
+        <!-- Миниатюра 1 (активная) -->
+        <rect width="140" height="140" rx="4" fill="#fff" filter="url(#shadow)"/>
+        <rect x="5" y="5" width="130" height="130" rx="4" fill="#e9ecef"/>
+        <rect width="140" height="140" rx="4" fill="none" stroke="#28a745" stroke-width="3"/>
+
+        <!-- Миниатюра 2 -->
+        <rect x="160" width="140" height="140" rx="4" fill="#fff" filter="url(#shadow)"/>
+        <rect x="165" y="5" width="130" height="130" rx="4" fill="#e9ecef"/>
+
+        <!-- Миниатюра 3 -->
+        <rect x="320" width="140" height="140" rx="4" fill="#fff" filter="url(#shadow)"/>
+        <rect x="325" y="5" width="130" height="130" rx="4" fill="#e9ecef"/>
+
+        <!-- Миниатюра 4 -->
+        <rect x="480" width="140" height="140" rx="4" fill="#fff" filter="url(#shadow)"/>
+        <rect x="485" y="5" width="130" height="130" rx="4" fill="#e9ecef"/>
+      </g>
+    </g>
+
+    <!-- ИНФОРМАЦИЯ О ТОВАРЕ -->
+    <g id="product-info" transform="translate(780, 0)">
+      <!-- Карточка с информацией -->
+      <rect width="540" height="900" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+      <g transform="translate(40, 40)">
+        <!-- Название -->
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#212529">
+          Бамбуковая тарелка
+        </text>
+
+        <text x="0" y="35" font-family="Arial, sans-serif" font-size="18" fill="#6c757d">
+          Набор из 4 штук, диаметр 24 см
+        </text>
+
+        <!-- Артикул и наличие -->
+        <g transform="translate(0, 60)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Артикул: BP-001
+          </text>
+          <rect x="150" y="-15" width="100" height="24" rx="12" fill="#d4edda"/>
+          <circle cx="170" cy="-3" r="4" fill="#28a745"/>
+          <text x="180" y="2" font-family="Arial, sans-serif" font-size="13" fill="#155724" font-weight="500">
+            В наличии
+          </text>
+        </g>
+
+        <!-- Рейтинг -->
+        <g transform="translate(0, 95)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" fill="#ffc107">★★★★★</text>
+          <text x="115" y="2" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+            5.0
+          </text>
+          <text x="150" y="2" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            (24 отзыва)
+          </text>
+        </g>
+
+        <!-- Разделитель -->
+        <line x1="0" y1="130" x2="460" y2="130" stroke="#dee2e6" stroke-width="1"/>
+
+        <!-- Цена -->
+        <g transform="translate(0, 170)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#28a745">
+            1 290 ₽
+          </text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Цена за набор
+          </text>
+        </g>
+
+        <!-- Краткое описание -->
+        <g transform="translate(0, 240)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#495057" font-weight="600">
+            Описание:
+          </text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Экологичный набор тарелок из натурального
+          </text>
+          <text x="0" y="50" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            бамбука. Прочные, легкие и безопасные для
+          </text>
+          <text x="0" y="70" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            здоровья. Подходят для повседневного
+          </text>
+          <text x="0" y="90" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            использования и особых случаев.
+          </text>
+        </g>
+
+        <!-- Характеристики -->
+        <g transform="translate(0, 360)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#495057" font-weight="600">
+            Характеристики:
+          </text>
+
+          <!-- Материал -->
+          <g transform="translate(0, 30)">
+            <rect width="220" height="50" rx="8" fill="#f8f9fa"/>
+            <text x="15" y="18" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">
+              Материал
+            </text>
+            <text x="15" y="38" font-family="Arial, sans-serif" font-size="14" fill="#212529" font-weight="600">
+              Бамбук 100%
+            </text>
+          </g>
+
+          <!-- Размер -->
+          <g transform="translate(240, 30)">
+            <rect width="220" height="50" rx="8" fill="#f8f9fa"/>
+            <text x="15" y="18" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">
+              Диаметр
+            </text>
+            <text x="15" y="38" font-family="Arial, sans-serif" font-size="14" fill="#212529" font-weight="600">
+              24 см
+            </text>
+          </g>
+
+          <!-- Производитель -->
+          <g transform="translate(0, 95)">
+            <rect width="220" height="50" rx="8" fill="#f8f9fa"/>
+            <text x="15" y="18" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">
+              Производитель
+            </text>
+            <text x="15" y="38" font-family="Arial, sans-serif" font-size="14" fill="#212529" font-weight="600">
+              ЭкоПроизводитель
+            </text>
+          </g>
+
+          <!-- Страна -->
+          <g transform="translate(240, 95)">
+            <rect width="220" height="50" rx="8" fill="#f8f9fa"/>
+            <text x="15" y="18" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">
+              Страна
+            </text>
+            <text x="15" y="38" font-family="Arial, sans-serif" font-size="14" fill="#212529" font-weight="600">
+              Россия
+            </text>
+          </g>
+        </g>
+
+        <!-- Эко-сертификат -->
+        <g transform="translate(0, 540)">
+          <rect width="460" height="60" rx="8" fill="url(#lightGreen)"/>
+          <g transform="translate(20, 20)">
+            <!-- Иконка сертификата -->
+            <rect width="25" height="30" rx="2" fill="#28a745" opacity="0.6"/>
+            <circle cx="12.5" cy="12" r="6" fill="none" stroke="#fff" stroke-width="2"/>
+            <path d="M 9 12 L 11 14 L 16 9" stroke="#fff" stroke-width="2" fill="none"/>
+
+            <text x="40" y="12" font-family="Arial, sans-serif" font-size="14" fill="#155724" font-weight="600">
+              Эко-сертификат: EcoCert
+            </text>
+            <text x="40" y="28" font-family="Arial, sans-serif" font-size="12" fill="#155724" opacity="0.8">
+              Подтверждение экологичности продукции
+            </text>
+          </g>
+        </g>
+
+        <!-- Количество -->
+        <g transform="translate(0, 630)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+            Количество:
+          </text>
+
+          <g transform="translate(0, 15)">
+            <!-- Минус -->
+            <rect width="50" height="50" rx="8" fill="#e9ecef"/>
+            <line x1="15" y1="25" x2="35" y2="25" stroke="#495057" stroke-width="2"/>
+
+            <!-- Количество -->
+            <rect x="60" width="80" height="50" rx="8" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+            <text x="100" y="33" font-family="Arial, sans-serif" font-size="20" fill="#212529" text-anchor="middle" font-weight="600">
+              1
+            </text>
+
+            <!-- Плюс -->
+            <rect x="150" width="50" height="50" rx="8" fill="#28a745"/>
+            <line x1="165" y1="25" x2="185" y2="25" stroke="#fff" stroke-width="2"/>
+            <line x1="175" y1="15" x2="175" y2="35" stroke="#fff" stroke-width="2"/>
+          </g>
+        </g>
+
+        <!-- Кнопки действий -->
+        <g transform="translate(0, 730)">
+          <!-- В корзину -->
+          <rect width="300" height="60" rx="30" fill="#28a745" filter="url(#shadow)"/>
+          <g transform="translate(60, 20)">
+            <!-- Иконка корзины -->
+            <rect x="0" y="5" width="20" height="15" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+            <path d="M 3 5 L 3 3 Q 3 1 10 1 Q 17 1 17 3 L 17 5" stroke="#fff" stroke-width="2" fill="none"/>
+
+            <text x="30" y="17" font-family="Arial, sans-serif" font-size="20" fill="#fff" font-weight="600">
+              В корзину
+            </text>
+          </g>
+
+          <!-- Купить в 1 клик -->
+          <g transform="translate(320, 0)">
+            <rect width="140" height="60" rx="30" fill="none" stroke="#28a745" stroke-width="2"/>
+            <text x="70" y="37" font-family="Arial, sans-serif" font-size="16" fill="#28a745" text-anchor="middle" font-weight="600">
+              Купить в 1 клик
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ВКЛАДКИ С ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИЕЙ -->
+  <g id="tabs" transform="translate(120, 1120)">
+    <!-- Заголовки вкладок -->
+    <g>
+      <!-- Описание (активная) -->
+      <rect width="200" height="50" fill="#fff" filter="url(#shadow)"/>
+      <rect y="48" width="200" height="3" fill="#28a745"/>
+      <text x="100" y="32" font-family="Arial, sans-serif" font-size="16" fill="#28a745" text-anchor="middle" font-weight="600">
+        Описание
+      </text>
+
+      <!-- Характеристики -->
+      <rect x="200" width="200" height="50" fill="#f8f9fa"/>
+      <text x="300" y="32" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle" font-weight="500">
+        Характеристики
+      </text>
+
+      <!-- Отзывы -->
+      <rect x="400" width="200" height="50" fill="#f8f9fa"/>
+      <text x="500" y="32" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle" font-weight="500">
+        Отзывы (24)
+      </text>
+
+      <!-- Уход -->
+      <rect x="600" width="200" height="50" fill="#f8f9fa"/>
+      <text x="700" y="32" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle" font-weight="500">
+        Уход
+      </text>
+    </g>
+
+    <!-- Контент вкладки -->
+    <g transform="translate(0, 50)">
+      <rect width="1200" height="300" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+      <g transform="translate(40, 40)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" fill="#212529" font-weight="600">
+          Подробное описание
+        </text>
+
+        <text x="0" y="40" font-family="Arial, sans-serif" font-size="15" fill="#495057" line-height="1.8">
+          Набор бамбуковых тарелок - это идеальное решение для тех, кто заботится об экологии и своем здоровье.
+        </text>
+        <text x="0" y="65" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+          Изготовлены из 100% натурального бамбука, выращенного без использования пестицидов.
+        </text>
+
+        <text x="0" y="105" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+          Преимущества:
+        </text>
+
+        <!-- Список преимуществ -->
+        <g transform="translate(0, 125)">
+          <circle cx="5" cy="5" r="3" fill="#28a745"/>
+          <text x="20" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Экологичный материал - бамбук растет быстро и не требует пестицидов
+          </text>
+        </g>
+
+        <g transform="translate(0, 150)">
+          <circle cx="5" cy="5" r="3" fill="#28a745"/>
+          <text x="20" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Легкие и прочные - не бьются при падении, идеальны для детей
+          </text>
+        </g>
+
+        <g transform="translate(0, 175)">
+          <circle cx="5" cy="5" r="3" fill="#28a745"/>
+          <text x="20" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Безопасны для здоровья - не содержат BPA и других вредных веществ
+          </text>
+        </g>
+
+        <g transform="translate(0, 200)">
+          <circle cx="5" cy="5" r="3" fill="#28a745"/>
+          <text x="20" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Стильный дизайн - подходят для повседневного использования и праздников
+          </text>
+        </g>
+
+        <g transform="translate(0, 225)">
+          <circle cx="5" cy="5" r="3" fill="#28a745"/>
+          <text x="20" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Биоразлагаемые - после использования безопасно разлагаются в природе
+          </text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- РЕКОМЕНДУЕМЫЕ ТОВАРЫ -->
+  <g id="recommended" transform="translate(0, 1520)">
+    <text x="120" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#212529">
+      С этим товаром покупают
+    </text>
+
+    <g transform="translate(120, 80)">
+      <!-- Товар 1 -->
+      <g>
+        <rect width="280" height="350" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+        <rect x="20" y="20" width="240" height="200" rx="4" fill="#e9ecef"/>
+
+        <!-- Иконка - стакан -->
+        <g transform="translate(110, 80)">
+          <rect x="30" y="30" width="40" height="60" rx="8" fill="#d4edda"/>
+          <ellipse cx="50" cy="30" rx="20" ry="6" fill="#28a745" opacity="0.4"/>
+        </g>
+
+        <g transform="translate(25, 235)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#ffc107">★★★★★</text>
+        </g>
+
+        <text x="25" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#212529">
+          Стеклянный стакан
+        </text>
+
+        <text x="25" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#28a745">
+          890 ₽
+        </text>
+      </g>
+
+      <!-- Товар 2 -->
+      <g transform="translate(320, 0)">
+        <rect width="280" height="350" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+        <rect x="20" y="20" width="240" height="200" rx="4" fill="#e9ecef"/>
+
+        <g transform="translate(100, 90)">
+          <rect x="30" y="30" width="50" height="50" rx="6" fill="#d4edda"/>
+        </g>
+
+        <g transform="translate(25, 235)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#ffc107">★★★★★</text>
+        </g>
+
+        <text x="25" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#212529">
+          Керамическая кружка
+        </text>
+
+        <text x="25" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#28a745">
+          390 ₽
+        </text>
+      </g>
+
+      <!-- Товар 3 -->
+      <g transform="translate(640, 0)">
+        <rect width="280" height="350" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+        <rect x="20" y="20" width="240" height="200" rx="4" fill="#e9ecef"/>
+
+        <g transform="translate(105, 85)">
+          <path d="M 20 30 L 30 70 L 80 70 L 90 30 Z" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+        </g>
+
+        <g transform="translate(25, 235)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#ffc107">★★★★★</text>
+        </g>
+
+        <text x="25" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#212529">
+          Эко-сумка из хлопка
+        </text>
+
+        <text x="25" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#28a745">
+          450 ₽
+        </text>
+      </g>
+
+      <!-- Товар 4 -->
+      <g transform="translate(960, 0)">
+        <rect width="280" height="350" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+        <rect x="20" y="20" width="240" height="200" rx="4" fill="#e9ecef"/>
+
+        <g transform="translate(100, 80)">
+          <rect x="20" y="30" width="60" height="50" rx="4" fill="#d4edda"/>
+        </g>
+
+        <g transform="translate(25, 235)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#ffc107">★★★★</text>
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#e9ecef">★</text>
+        </g>
+
+        <text x="25" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#212529">
+          Льняное полотенце
+        </text>
+
+        <text x="25" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#28a745">
+          550 ₽
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Информационная надпись -->
+  <text x="720" y="2180" font-family="Arial, sans-serif" font-size="12" fill="#6c757d" text-anchor="middle">
+    Mockup - Страница товара GreenShop | Бамбуковая тарелка
+  </text>
+</svg>

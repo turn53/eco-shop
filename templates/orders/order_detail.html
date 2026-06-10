@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказ № {{ order.order_number }} - GreenShop{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-receipt"></i> Заказ № {{ order.order_number }}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <!-- Status -->
+                    <div class="alert {% if order.status == 'delivered' %}alert-success{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Статус заказа:</strong>
+                                {% if order.status == 'pending' %}
+                                    Ожидает оплаты
+                                {% elif order.status == 'paid' %}
+                                    Оплачен
+                                {% elif order.status == 'processing' %}
+                                    В обработке
+                                {% elif order.status == 'shipped' %}
+                                    Отправлен
+                                {% elif order.status == 'delivered' %}
+                                    Доставлен
+                                {% elif order.status == 'cancelled' %}
+                                    Отменен
+                                {% endif %}
+                            </div>
+                            <div>
+                                <small class="text-muted">
+                                    Создан: {{ order.created_at|date:"d.m.Y H:i" }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Items -->
+                    <h5 class="mb-3">Состав заказа:</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Товар</th>
+                                    <th class="text-center">Количество</th>
+                                    <th class="text-end">Цена</th>
+                                    <th class="text-end">Сумма</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order.items.all %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ item.product_name }}</strong>
+                                    </td>
+                                    <td class="text-center">{{ item.quantity }}</td>
+                                    <td class="text-end">{{ item.product_price }} ₽</td>
+                                    <td class="text-end"><strong>{{ item.total_price }} ₽</strong></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Товары:</strong></td>
+                                    <td class="text-end"><strong>{{ order.subtotal }} ₽</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Доставка:</strong></td>
+                                    <td class="text-end"><strong>{{ order.delivery_cost }} ₽</strong></td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td colspan="3" class="text-end"><h5 class="mb-0">Итого:</h5></td>
+                                    <td class="text-end"><h5 class="mb-0">{{ order.total }} ₽</h5></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <!-- Delivery Info -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-person"></i> Получатель</h6>
+                            <p>
+                                <strong>{{ order.recipient_name }}</strong><br>
+                                {{ order.recipient_phone }}<br>
+                                {% if order.recipient_email %}
+                                    {{ order.recipient_email }}
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-geo-alt"></i> Адрес доставки</h6>
+                            <p>{{ order.delivery_address }}</p>
+                            {% if order.delivery_notes %}
+                            <p class="text-muted">
+                                <small><strong>Комментарий:</strong> {{ order.delivery_notes }}</small>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Payment Info -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-credit-card"></i> Способ оплаты</h6>
+                            <p>
+                                {% if order.payment_method == 'yookassa' %}
+                                    Онлайн-оплата (ЮКасса)
+                                {% elif order.payment_method == 'cash' %}
+                                    Наличными при получении
+                                {% elif order.payment_method == 'card_on_delivery' %}
+                                    Картой при получении
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-check-circle"></i> Статус оплаты</h6>
+                            <p>
+                                {% if order.is_paid %}
+                                    <span class="badge bg-success">Оплачен</span>
+                                    {% if order.paid_at %}
+                                        <br><small class="text-muted">{{ order.paid_at|date:"d.m.Y H:i" }}</small>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="badge bg-warning">Не оплачен</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="mt-4 d-grid gap-2 d-md-flex">
+                        <a href="{% url 'users:order_history' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> К списку заказов
+                        </a>
+                        {% if order.status == 'pending' and order.payment_method == 'yookassa' and not order.is_paid %}
+                            <a href="{% url 'payments:create_payment' order.id %}" class="btn btn-primary">
+                                <i class="bi bi-credit-card"></i> Оплатить
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

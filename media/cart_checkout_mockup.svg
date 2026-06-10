@@ -1,0 +1,754 @@
+<!-- Макет страницы корзины и оформления заказа - Cart & Checkout GreenShop -->
+<svg width="1440" height="2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Градиенты -->
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#28a745;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#20833a;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4edda;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c3e6cb;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Тени -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Фон -->
+  <rect width="1440" height="2400" fill="#f8f9fa"/>
+
+  <!-- HEADER -->
+  <g id="header">
+    <rect width="1440" height="80" fill="url(#greenGradient)" filter="url(#shadow)"/>
+
+    <g id="logo" transform="translate(60, 25)">
+      <path d="M 15 5 Q 25 5 30 15 Q 30 25 20 30 Q 15 25 15 20 L 12 15 Z" fill="#fff" opacity="0.9"/>
+      <text x="40" y="22" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff">
+        GreenShop
+      </text>
+    </g>
+
+    <g id="navigation" transform="translate(400, 30)">
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">Каталог</text>
+      <text x="100" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">О нас</text>
+      <text x="200" y="20" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">Контакты</text>
+    </g>
+
+    <!-- Корзина (активная) -->
+    <g transform="translate(1320, 25)">
+      <rect x="8" y="10" width="24" height="18" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+      <path d="M 12 10 L 12 8 Q 12 5 20 5 Q 28 5 28 8 L 28 10" stroke="#fff" stroke-width="2" fill="none"/>
+      <circle cx="30" cy="8" r="8" fill="#dc3545"/>
+      <text x="30" y="12" font-family="Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+    </g>
+  </g>
+
+  <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+  <g id="page-header" transform="translate(120, 110)">
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#212529">
+      Корзина
+    </text>
+
+    <!-- Шаги оформления -->
+    <g transform="translate(0, 80)">
+      <!-- Шаг 1 - Корзина (активный) -->
+      <g>
+        <circle cx="20" cy="0" r="20" fill="#28a745"/>
+        <text x="20" y="6" font-family="Arial, sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="bold">
+          1
+        </text>
+        <text x="20" y="40" font-family="Arial, sans-serif" font-size="14" fill="#28a745" text-anchor="middle" font-weight="600">
+          Корзина
+        </text>
+      </g>
+
+      <!-- Линия к шагу 2 -->
+      <line x1="40" y1="0" x2="160" y2="0" stroke="#28a745" stroke-width="2"/>
+
+      <!-- Шаг 2 - Оформление -->
+      <g transform="translate(180, 0)">
+        <circle cx="20" cy="0" r="20" fill="#28a745"/>
+        <text x="20" y="6" font-family="Arial, sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="bold">
+          2
+        </text>
+        <text x="20" y="40" font-family="Arial, sans-serif" font-size="14" fill="#28a745" text-anchor="middle" font-weight="600">
+          Оформление
+        </text>
+      </g>
+
+      <!-- Линия к шагу 3 -->
+      <line x1="220" y1="0" x2="340" y2="0" stroke="#ced4da" stroke-width="2"/>
+
+      <!-- Шаг 3 - Оплата (неактивный) -->
+      <g transform="translate(360, 0)">
+        <circle cx="20" cy="0" r="20" fill="#e9ecef"/>
+        <text x="20" y="6" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle" font-weight="bold">
+          3
+        </text>
+        <text x="20" y="40" font-family="Arial, sans-serif" font-size="14" fill="#6c757d" text-anchor="middle" font-weight="500">
+          Оплата
+        </text>
+      </g>
+
+      <!-- Линия к шагу 4 -->
+      <line x1="400" y1="0" x2="520" y2="0" stroke="#ced4da" stroke-width="2"/>
+
+      <!-- Шаг 4 - Готово (неактивный) -->
+      <g transform="translate(540, 0)">
+        <circle cx="20" cy="0" r="20" fill="#e9ecef"/>
+        <path d="M 12 0 L 17 5 L 28 -6" stroke="#6c757d" stroke-width="2" fill="none"/>
+        <text x="20" y="40" font-family="Arial, sans-serif" font-size="14" fill="#6c757d" text-anchor="middle" font-weight="500">
+          Готово
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <g id="main-content" transform="translate(0, 310)">
+    <!-- ТОВАРЫ В КОРЗИНЕ -->
+    <g id="cart-items" transform="translate(120, 0)">
+      <!-- Карточка товара 1 -->
+      <g>
+        <rect width="800" height="180" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+        <!-- Изображение товара -->
+        <g transform="translate(20, 20)">
+          <rect width="140" height="140" rx="6" fill="#e9ecef"/>
+          <!-- Иконка тарелки -->
+          <g transform="translate(70, 70)">
+            <circle cx="0" cy="0" r="40" fill="#d4edda"/>
+            <ellipse cx="0" cy="0" rx="33" ry="10" fill="#28a745" opacity="0.3"/>
+          </g>
+        </g>
+
+        <!-- Информация о товаре -->
+        <g transform="translate(180, 30)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#212529">
+            Бамбуковая тарелка
+          </text>
+          <text x="0" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Набор из 4 штук, диаметр 24 см
+          </text>
+
+          <!-- Материал -->
+          <g transform="translate(0, 50)">
+            <rect width="90" height="24" rx="12" fill="#d4edda"/>
+            <text x="45" y="17" font-family="Arial, sans-serif" font-size="12" fill="#155724" text-anchor="middle" font-weight="500">
+              Бамбук
+            </text>
+          </g>
+
+          <!-- Цена за единицу -->
+          <text x="0" y="105" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Цена: 1 290 ₽
+          </text>
+        </g>
+
+        <!-- Управление количеством -->
+        <g transform="translate(520, 65)">
+          <!-- Минус -->
+          <rect width="40" height="40" rx="6" fill="#e9ecef"/>
+          <line x1="12" y1="20" x2="28" y2="20" stroke="#495057" stroke-width="2"/>
+
+          <!-- Количество -->
+          <rect x="50" width="60" height="40" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+          <text x="80" y="27" font-family="Arial, sans-serif" font-size="18" fill="#212529" text-anchor="middle" font-weight="600">
+            2
+          </text>
+
+          <!-- Плюс -->
+          <rect x="120" width="40" height="40" rx="6" fill="#28a745"/>
+          <line x1="132" y1="20" x2="148" y2="20" stroke="#fff" stroke-width="2"/>
+          <line x1="140" y1="12" x2="140" y2="28" stroke="#fff" stroke-width="2"/>
+        </g>
+
+        <!-- Итоговая цена -->
+        <text x="680" y="95" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#28a745">
+          2 580 ₽
+        </text>
+
+        <!-- Кнопка удалить -->
+        <g transform="translate(750, 20)">
+          <circle cx="15" cy="15" r="15" fill="#fff" stroke="#dc3545" stroke-width="1"/>
+          <line x1="9" y1="9" x2="21" y2="21" stroke="#dc3545" stroke-width="2"/>
+          <line x1="21" y1="9" x2="9" y2="21" stroke="#dc3545" stroke-width="2"/>
+        </g>
+      </g>
+
+      <!-- Карточка товара 2 -->
+      <g transform="translate(0, 200)">
+        <rect width="800" height="180" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+        <!-- Изображение товара -->
+        <g transform="translate(20, 20)">
+          <rect width="140" height="140" rx="6" fill="#e9ecef"/>
+          <!-- Иконка стакана -->
+          <g transform="translate(50, 50)">
+            <rect x="30" y="20" width="40" height="60" rx="8" fill="#d4edda"/>
+            <ellipse cx="50" cy="20" rx="20" ry="6" fill="#28a745" opacity="0.4"/>
+          </g>
+        </g>
+
+        <!-- Информация о товаре -->
+        <g transform="translate(180, 30)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#212529">
+            Стеклянный стакан
+          </text>
+          <text x="0" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Набор из 6 штук, объем 250 мл
+          </text>
+
+          <!-- Материал -->
+          <g transform="translate(0, 50)">
+            <rect width="90" height="24" rx="12" fill="#d4edda"/>
+            <text x="45" y="17" font-family="Arial, sans-serif" font-size="12" fill="#155724" text-anchor="middle" font-weight="500">
+              Стекло
+            </text>
+          </g>
+
+          <!-- Цена за единицу -->
+          <text x="0" y="105" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+            Цена: 890 ₽
+          </text>
+        </g>
+
+        <!-- Управление количеством -->
+        <g transform="translate(520, 65)">
+          <!-- Минус -->
+          <rect width="40" height="40" rx="6" fill="#e9ecef"/>
+          <line x1="12" y1="20" x2="28" y2="20" stroke="#495057" stroke-width="2"/>
+
+          <!-- Количество -->
+          <rect x="50" width="60" height="40" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+          <text x="80" y="27" font-family="Arial, sans-serif" font-size="18" fill="#212529" text-anchor="middle" font-weight="600">
+            1
+          </text>
+
+          <!-- Плюс -->
+          <rect x="120" width="40" height="40" rx="6" fill="#28a745"/>
+          <line x1="132" y1="20" x2="148" y2="20" stroke="#fff" stroke-width="2"/>
+          <line x1="140" y1="12" x2="140" y2="28" stroke="#fff" stroke-width="2"/>
+        </g>
+
+        <!-- Итоговая цена -->
+        <text x="700" y="95" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#28a745">
+          890 ₽
+        </text>
+
+        <!-- Кнопка удалить -->
+        <g transform="translate(750, 20)">
+          <circle cx="15" cy="15" r="15" fill="#fff" stroke="#dc3545" stroke-width="1"/>
+          <line x1="9" y1="9" x2="21" y2="21" stroke="#dc3545" stroke-width="2"/>
+          <line x1="21" y1="9" x2="9" y2="21" stroke="#dc3545" stroke-width="2"/>
+        </g>
+      </g>
+
+      <!-- Промокод -->
+      <g transform="translate(0, 420)">
+        <rect width="800" height="70" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+        <g transform="translate(20, 25)">
+          <!-- Иконка промокода -->
+          <rect width="20" height="30" rx="3" fill="#28a745" opacity="0.2"/>
+          <line x1="5" y1="10" x2="15" y2="10" stroke="#28a745" stroke-width="2"/>
+          <line x1="5" y1="20" x2="15" y2="20" stroke="#28a745" stroke-width="2"/>
+
+          <text x="35" y="22" font-family="Arial, sans-serif" font-size="16" fill="#495057">
+            У вас есть промокод?
+          </text>
+
+          <!-- Поле ввода -->
+          <rect x="250" y="-5" width="350" height="40" rx="6" fill="#f8f9fa" stroke="#ced4da" stroke-width="1"/>
+          <text x="270" y="22" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">
+            Введите промокод...
+          </text>
+
+          <!-- Кнопка применить -->
+          <rect x="620" y="-5" width="140" height="40" rx="6" fill="#28a745"/>
+          <text x="690" y="22" font-family="Arial, sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="600">
+            Применить
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- ИТОГО И ОФОРМЛЕНИЕ -->
+    <g id="order-summary" transform="translate(960, 0)">
+      <rect width="360" height="520" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+      <g transform="translate(30, 30)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#212529">
+          Итого
+        </text>
+
+        <!-- Разделитель -->
+        <line x1="0" y1="20" x2="300" y2="20" stroke="#dee2e6" stroke-width="1"/>
+
+        <!-- Товары -->
+        <g transform="translate(0, 45)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Товары (3 шт.)
+          </text>
+          <text x="300" y="0" font-family="Arial, sans-serif" font-size="15" fill="#212529" text-anchor="end" font-weight="600">
+            3 470 ₽
+          </text>
+        </g>
+
+        <!-- Скидка -->
+        <g transform="translate(0, 75)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Скидка
+          </text>
+          <text x="300" y="0" font-family="Arial, sans-serif" font-size="15" fill="#dc3545" text-anchor="end" font-weight="600">
+            - 0 ₽
+          </text>
+        </g>
+
+        <!-- Доставка -->
+        <g transform="translate(0, 105)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" fill="#495057">
+            Доставка
+          </text>
+          <text x="300" y="0" font-family="Arial, sans-serif" font-size="15" fill="#28a745" text-anchor="end" font-weight="600">
+            Бесплатно
+          </text>
+        </g>
+
+        <!-- Разделитель -->
+        <line x1="0" y1="130" x2="300" y2="130" stroke="#dee2e6" stroke-width="1"/>
+
+        <!-- Итого -->
+        <g transform="translate(0, 155)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" fill="#212529" font-weight="600">
+            Итого к оплате:
+          </text>
+          <text x="300" y="0" font-family="Arial, sans-serif" font-size="28" fill="#28a745" text-anchor="end" font-weight="bold">
+            3 470 ₽
+          </text>
+        </g>
+
+        <!-- Информация о доставке -->
+        <g transform="translate(0, 200)">
+          <rect width="300" height="80" rx="6" fill="#d4edda"/>
+
+          <g transform="translate(15, 20)">
+            <!-- Иконка доставки -->
+            <rect x="0" y="5" width="30" height="20" rx="3" fill="#28a745" opacity="0.4"/>
+            <circle cx="8" cy="32" r="5" fill="#28a745"/>
+            <circle cx="22" cy="32" r="5" fill="#28a745"/>
+
+            <text x="45" y="18" font-family="Arial, sans-serif" font-size="14" fill="#155724" font-weight="600">
+              Бесплатная доставка
+            </text>
+            <text x="45" y="38" font-family="Arial, sans-serif" font-size="12" fill="#155724">
+              При заказе от 3 000 ₽
+            </text>
+          </g>
+        </g>
+
+        <!-- Кнопка оформления -->
+        <g transform="translate(0, 310)">
+          <rect width="300" height="60" rx="30" fill="#28a745" filter="url(#shadow)"/>
+          <text x="150" y="38" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">
+            Оформить заказ
+          </text>
+        </g>
+
+        <!-- Способы оплаты -->
+        <g transform="translate(0, 390)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+            Принимаем к оплате:
+          </text>
+
+          <g transform="translate(0, 20)">
+            <!-- Visa -->
+            <rect width="60" height="40" rx="4" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+            <text x="30" y="27" font-family="Arial, sans-serif" font-size="14" fill="#1A1F71" text-anchor="middle" font-weight="bold">
+              VISA
+            </text>
+
+            <!-- MasterCard -->
+            <g transform="translate(70, 0)">
+              <rect width="60" height="40" rx="4" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+              <circle cx="20" cy="20" r="10" fill="#EB001B" opacity="0.8"/>
+              <circle cx="30" cy="20" r="10" fill="#F79E1B" opacity="0.8"/>
+            </g>
+
+            <!-- Мир -->
+            <g transform="translate(140, 0)">
+              <rect width="60" height="40" rx="4" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+              <text x="30" y="27" font-family="Arial, sans-serif" font-size="14" fill="#4DB45E" text-anchor="middle" font-weight="bold">
+                МИР
+              </text>
+            </g>
+
+            <!-- ЮKassa -->
+            <g transform="translate(210, 0)">
+              <rect width="80" height="40" rx="4" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+              <text x="40" y="23" font-family="Arial, sans-serif" font-size="11" fill="#8B3FFD" text-anchor="middle" font-weight="bold">
+                ЮKassa
+              </text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ФОРМА ОФОРМЛЕНИЯ ЗАКАЗА -->
+  <g id="checkout-form" transform="translate(120, 890)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#212529">
+      Данные получателя
+    </text>
+
+    <!-- Форма -->
+    <g transform="translate(0, 40)">
+      <rect width="800" height="620" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+      <g transform="translate(40, 40)">
+        <!-- ФИО -->
+        <g>
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+            Фамилия Имя Отчество *
+          </text>
+          <rect x="0" y="10" width="720" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+          <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#212529">
+            Иванов Иван Иванович
+          </text>
+        </g>
+
+        <!-- Телефон и Email -->
+        <g transform="translate(0, 90)">
+          <!-- Телефон -->
+          <g>
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+              Телефон *
+            </text>
+            <rect x="0" y="10" width="340" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+            <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#212529">
+              +7 (900) 123-45-67
+            </text>
+          </g>
+
+          <!-- Email -->
+          <g transform="translate(380, 0)">
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+              Email *
+            </text>
+            <rect x="0" y="10" width="340" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+            <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#212529">
+              ivan@example.com
+            </text>
+          </g>
+        </g>
+
+        <!-- Адрес доставки -->
+        <g transform="translate(0, 180)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+            Адрес доставки *
+          </text>
+          <rect x="0" y="10" width="720" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+          <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#adb5bd">
+            Улица, дом, квартира
+          </text>
+        </g>
+
+        <!-- Город и Индекс -->
+        <g transform="translate(0, 270)">
+          <!-- Город -->
+          <g>
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+              Город *
+            </text>
+            <rect x="0" y="10" width="480" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+            <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#adb5bd">
+              Москва
+            </text>
+          </g>
+
+          <!-- Индекс -->
+          <g transform="translate(520, 0)">
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057" font-weight="600">
+              Индекс *
+            </text>
+            <rect x="0" y="10" width="200" height="50" rx="6" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+            <text x="20" y="42" font-family="Arial, sans-serif" font-size="15" fill="#adb5bd">
+              123456
+            </text>
+          </g>
+        </g>
+
+        <!-- Способ доставки -->
+        <g transform="translate(0, 360)">
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+            Способ доставки
+          </text>
+
+          <!-- Курьерская доставка -->
+          <g transform="translate(0, 25)">
+            <rect width="720" height="60" rx="6" fill="#fff" stroke="#28a745" stroke-width="2"/>
+            <circle cx="25" cy="30" r="10" fill="#28a745"/>
+            <circle cx="25" cy="30" r="4" fill="#fff"/>
+
+            <g transform="translate(50, 15)">
+              <text x="0" y="10" font-family="Arial, sans-serif" font-size="15" fill="#212529" font-weight="600">
+                Курьерская доставка
+              </text>
+              <text x="0" y="28" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+                1-2 рабочих дня
+              </text>
+            </g>
+
+            <text x="680" y="35" font-family="Arial, sans-serif" font-size="16" fill="#28a745" text-anchor="end" font-weight="bold">
+              Бесплатно
+            </text>
+          </g>
+
+          <!-- Пункт выдачи -->
+          <g transform="translate(0, 95)">
+            <rect width="720" height="60" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+            <circle cx="25" cy="30" r="10" fill="none" stroke="#ced4da" stroke-width="2"/>
+
+            <g transform="translate(50, 15)">
+              <text x="0" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057" font-weight="500">
+                Самовывоз из пункта выдачи
+              </text>
+              <text x="0" y="28" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+                3-5 рабочих дней
+              </text>
+            </g>
+
+            <text x="680" y="35" font-family="Arial, sans-serif" font-size="16" fill="#28a745" text-anchor="end" font-weight="bold">
+              Бесплатно
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- СПОСОБ ОПЛАТЫ -->
+  <g id="payment-method" transform="translate(120, 1590)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#212529">
+      Способ оплаты
+    </text>
+
+    <g transform="translate(0, 40)">
+      <rect width="800" height="200" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+
+      <g transform="translate(40, 30)">
+        <!-- Онлайн оплата -->
+        <g>
+          <rect width="720" height="60" rx="6" fill="#fff" stroke="#28a745" stroke-width="2"/>
+          <circle cx="25" cy="30" r="10" fill="#28a745"/>
+          <circle cx="25" cy="30" r="4" fill="#fff"/>
+
+          <g transform="translate(50, 15)">
+            <text x="0" y="10" font-family="Arial, sans-serif" font-size="15" fill="#212529" font-weight="600">
+              Онлайн оплата картой
+            </text>
+            <text x="0" y="28" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+              Visa, MasterCard, МИР - безопасная оплата через ЮKassa
+            </text>
+          </g>
+
+          <!-- Иконки карт -->
+          <g transform="translate(600, 18)">
+            <rect width="35" height="24" rx="3" fill="#1A1F71" opacity="0.8"/>
+            <text x="17.5" y="16" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle" font-weight="bold">
+              VISA
+            </text>
+          </g>
+        </g>
+
+        <!-- Оплата при получении -->
+        <g transform="translate(0, 80)">
+          <rect width="720" height="60" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+          <circle cx="25" cy="30" r="10" fill="none" stroke="#ced4da" stroke-width="2"/>
+
+          <g transform="translate(50, 15)">
+            <text x="0" y="10" font-family="Arial, sans-serif" font-size="15" fill="#495057" font-weight="500">
+              Оплата при получении
+            </text>
+            <text x="0" y="28" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+              Наличными или картой курьеру
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- КОММЕНТАРИЙ К ЗАКАЗУ -->
+  <g id="order-comment" transform="translate(120, 1870)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" fill="#495057" font-weight="600">
+      Комментарий к заказу
+    </text>
+
+    <g transform="translate(0, 20)">
+      <rect width="800" height="100" rx="8" fill="#fff" stroke="#ced4da" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">
+        Укажите дополнительную информацию: удобное время доставки, пожелания...
+      </text>
+    </g>
+  </g>
+
+  <!-- ЭКО-УПАКОВКА -->
+  <g id="eco-packaging" transform="translate(960, 1590)">
+    <rect width="360" height="380" rx="8" fill="url(#lightGreen)" filter="url(#cardShadow)"/>
+
+    <g transform="translate(30, 30)">
+      <!-- Иконка листика -->
+      <g>
+        <path d="M 30 10 Q 50 5 60 25 Q 60 40 45 50 Q 35 45 30 40 Z" fill="#28a745" opacity="0.6"/>
+        <path d="M 32 20 Q 40 15 45 25" stroke="#fff" stroke-width="2" fill="none"/>
+      </g>
+
+      <text x="75" y="35" font-family="Arial, sans-serif" font-size="20" fill="#155724" font-weight="bold">
+        Эко-упаковка
+      </text>
+
+      <g transform="translate(0, 70)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#155724" line-height="1.6">
+          Мы заботимся о планете!
+        </text>
+        <text x="0" y="25" font-family="Arial, sans-serif" font-size="13" fill="#155724" opacity="0.9">
+          Ваш заказ будет упакован в:
+        </text>
+      </g>
+
+      <g transform="translate(0, 120)">
+        <!-- Пункт 1 -->
+        <g>
+          <circle cx="8" cy="0" r="4" fill="#28a745"/>
+          <text x="25" y="5" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            Биоразлагаемые пакеты из
+          </text>
+          <text x="25" y="22" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            кукурузного крахмала
+          </text>
+        </g>
+
+        <!-- Пункт 2 -->
+        <g transform="translate(0, 45)">
+          <circle cx="8" cy="0" r="4" fill="#28a745"/>
+          <text x="25" y="5" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            Переработанный картон
+          </text>
+        </g>
+
+        <!-- Пункт 3 -->
+        <g transform="translate(0, 70)">
+          <circle cx="8" cy="0" r="4" fill="#28a745"/>
+          <text x="25" y="5" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            Натуральный наполнитель
+          </text>
+          <text x="25" y="22" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            из переработанной бумаги
+          </text>
+        </g>
+
+        <!-- Пункт 4 -->
+        <g transform="translate(0, 115)">
+          <circle cx="8" cy="0" r="4" fill="#28a745"/>
+          <text x="25" y="5" font-family="Arial, sans-serif" font-size="13" fill="#155724">
+            Без пластиковой ленты
+          </text>
+        </g>
+      </g>
+
+      <!-- Бейдж -->
+      <g transform="translate(70, 280)">
+        <rect width="160" height="50" rx="25" fill="#28a745"/>
+        <text x="80" y="32" font-family="Arial, sans-serif" font-size="18" fill="#fff" text-anchor="middle" font-weight="bold">
+          100% ECO
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ГАРАНТИИ -->
+  <g id="guarantees" transform="translate(120, 2050)">
+    <!-- Гарантия 1 -->
+    <g>
+      <rect width="380" height="100" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+      <g transform="translate(20, 30)">
+        <!-- Иконка -->
+        <circle cx="20" cy="20" r="20" fill="#d4edda"/>
+        <path d="M 13 20 L 18 25 L 27 16" stroke="#28a745" stroke-width="3" fill="none"/>
+
+        <g transform="translate(55, 10)">
+          <text x="0" y="10" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+            Безопасная оплата
+          </text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+            Защита данных по стандарту PCI DSS
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Гарантия 2 -->
+    <g transform="translate(420, 0)">
+      <rect width="380" height="100" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+      <g transform="translate(20, 30)">
+        <!-- Иконка -->
+        <circle cx="20" cy="20" r="20" fill="#d4edda"/>
+        <path d="M 12 28 Q 20 14 28 28" stroke="#28a745" stroke-width="3" fill="none"/>
+        <circle cx="20" cy="18" r="2" fill="#28a745"/>
+
+        <g transform="translate(55, 10)">
+          <text x="0" y="10" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+            Возврат 14 дней
+          </text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+            Вернем деньги, если не понравится
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Гарантия 3 -->
+    <g transform="translate(840, 0)">
+      <rect width="380" height="100" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+      <g transform="translate(20, 30)">
+        <!-- Иконка -->
+        <circle cx="20" cy="20" r="20" fill="#d4edda"/>
+        <text x="20" y="28" font-family="Arial, sans-serif" font-size="18" fill="#28a745" text-anchor="middle" font-weight="bold">
+          24/7
+        </text>
+
+        <g transform="translate(55, 10)">
+          <text x="0" y="10" font-family="Arial, sans-serif" font-size="16" fill="#212529" font-weight="600">
+            Поддержка 24/7
+          </text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="13" fill="#6c757d">
+            Всегда на связи, чтобы помочь вам
+          </text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- КНОПКА ОФОРМЛЕНИЯ (мобильная версия) -->
+  <g id="mobile-checkout-button" transform="translate(120, 2200)">
+    <rect width="1200" height="80" rx="40" fill="#28a745" filter="url(#shadow)"/>
+    <text x="600" y="50" font-family="Arial, sans-serif" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">
+      Перейти к оплате — 3 470 ₽
+    </text>
+  </g>
+
+  <!-- Информационная надпись -->
+  <text x="720" y="2380" font-family="Arial, sans-serif" font-size="12" fill="#6c757d" text-anchor="middle">
+    Mockup - Корзина и оформление заказа GreenShop
+  </text>
+</svg>

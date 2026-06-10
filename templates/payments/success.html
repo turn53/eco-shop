@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block title %}Оплата успешна - GreenShop{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <!-- Success Card -->
+            <div class="card border-0 shadow-lg success-card animate-fade-in">
+                <div class="card-body text-center p-4 p-md-5">
+                    <!-- Success Icon -->
+                    <div class="success-icon-wrapper mb-4">
+                        <div class="success-icon-bg">
+                            <i class="bi bi-check-circle-fill success-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="h2 fw-bold text-dark mb-3">
+                        Оплата прошла успешно!
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="lead text-success fw-semibold mb-2">
+                        Спасибо за ваш заказ в GreenShop
+                    </p>
+
+                    <p class="text-muted mb-4">
+                        Ваш заказ был успешно оплачен и принят в обработку.<br>
+                        Мы отправили подтверждение на вашу электронную почту.
+                    </p>
+
+                    <!-- Divider -->
+                    <hr class="my-4" style="opacity: 0.1;">
+
+                    <!-- Next Steps -->
+                    <div class="next-steps-card p-3 p-md-4 mb-4">
+                        <h5 class="fw-bold text-dark mb-3 d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-clock-history text-success"></i>
+                            Что дальше?
+                        </h5>
+                        <div class="row g-3 text-start">
+                            <div class="col-12 col-md-4">
+                                <div class="step-item">
+                                    <div class="step-icon">
+                                        <i class="bi bi-box-seam text-success"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <strong class="d-block mb-1 small">Обработка</strong>
+                                        <small class="text-muted">В течение 24 часов</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="step-item">
+                                    <div class="step-icon">
+                                        <i class="bi bi-truck text-success"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <strong class="d-block mb-1 small">Отправка</strong>
+                                        <small class="text-muted">Уведомим о передаче курьеру</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="step-item">
+                                    <div class="step-icon">
+                                        <i class="bi bi-house-check text-success"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <strong class="d-block mb-1 small">Доставка</strong>
+                                        <small class="text-muted">2-5 рабочих дней</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eco Message -->
+                    <div class="eco-message mb-4">
+                        <i class="bi bi-leaf text-success me-2"></i>
+                        <small class="text-muted">
+                            Ваш заказ будет доставлен в биоразлагаемой упаковке с углеродно-нейтральной доставкой
+                        </small>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column flex-md-row gap-2 gap-md-3 justify-content-center">
+                        <a href="{% url 'users:order_history' %}" class="btn btn-primary px-4 py-2">
+                            <i class="bi bi-list-check"></i> Мои заказы
+                        </a>
+                        <a href="{% url 'shop:product_list' %}" class="btn btn-outline-primary px-4 py-2">
+                            <i class="bi bi-shop"></i> Продолжить покупки
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info Cards -->
+            <div class="row g-3 mt-3 animate-slide-up">
+                <div class="col-6 col-md-3">
+                    <div class="info-card text-center p-3">
+                        <i class="bi bi-shield-check text-success fs-4 mb-2"></i>
+                        <p class="mb-0 small fw-semibold">Безопасная оплата</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="info-card text-center p-3">
+                        <i class="bi bi-arrow-repeat text-success fs-4 mb-2"></i>
+                        <p class="mb-0 small fw-semibold">Возврат 14 дней</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="info-card text-center p-3">
+                        <i class="bi bi-headset text-success fs-4 mb-2"></i>
+                        <p class="mb-0 small fw-semibold">Поддержка 24/7</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="info-card text-center p-3">
+                        <i class="bi bi-patch-check text-success fs-4 mb-2"></i>
+                        <p class="mb-0 small fw-semibold">Эко сертификаты</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .success-card {
+        border-radius: 1rem;
+        overflow: hidden;
+        background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
+    }
+
+    .success-icon-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .success-icon-bg {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, var(--light-green) 0%, #b7e4c7 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse-success 2s infinite;
+    }
+
+    @media (min-width: 768px) {
+        .success-icon-bg {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    .success-icon {
+        font-size: 3rem;
+        color: var(--primary-green);
+    }
+
+    @media (min-width: 768px) {
+        .success-icon {
+            font-size: 4rem;
+        }
+    }
+
+    @keyframes pulse-success {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.4);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(82, 183, 136, 0);
+        }
+    }
+
+    .next-steps-card {
+        background: linear-gradient(135deg, var(--light-green) 0%, #e8f5e9 100%);
+        border-radius: 0.75rem;
+        border: 2px solid rgba(45, 106, 79, 0.1);
+    }
+
+    .step-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: white;
+        border-radius: 0.5rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .step-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .step-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--light-green);
+        border-radius: 50%;
+        font-size: 1.25rem;
+    }
+
+    .step-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .eco-message {
+        padding: 0.75rem 1rem;
+        background: rgba(216, 243, 220, 0.3);
+        border-radius: 0.5rem;
+        border-left: 3px solid var(--secondary-green);
+    }
+
+    .info-card {
+        background: white;
+        border-radius: 0.75rem;
+        border: 2px solid var(--light-green);
+        transition: all 0.3s;
+    }
+
+    .info-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
+        border-color: var(--secondary-green);
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-in;
+    }
+
+    .animate-slide-up {
+        animation: slideUp 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .step-item {
+            padding: 0.5rem;
+        }
+
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
